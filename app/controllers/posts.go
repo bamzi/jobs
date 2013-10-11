@@ -12,7 +12,7 @@ type Posts struct {
 func (c Posts) Index() revel.Result {
   results, err := Db.Select(
     models.Post{},
-    `select * from posts where active = ?`, true)
+    `select * from posts where active = $1`, true)
   if err != nil {
     panic(err)
   }
