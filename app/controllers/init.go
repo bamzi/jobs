@@ -5,7 +5,7 @@ import(
   "github.com/coopernurse/gorp"
   _ "github.com/lib/pq"
 
-  "jobs/app/models"
+  "github.com/gylaz/jobs/app/models"
 )
 
 var Db *gorp.DbMap

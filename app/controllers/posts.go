@@ -2,8 +2,8 @@ package controllers
 
 import(
   "github.com/robfig/revel"
-  "jobs/app/models"
-  "jobs/app/routes"
+  "github.com/gylaz/jobs/app/models"
+  "github.com/gylaz/jobs/app/routes"
 )
 
 type Posts struct {
