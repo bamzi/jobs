@@ -3,6 +3,7 @@ package controllers
 import(
   "github.com/robfig/revel"
   "jobs/app/models"
+  "jobs/app/routes"
 )
 
 type Posts struct {
@@ -30,6 +31,12 @@ func (c Posts) New() revel.Result {
 	return c.Render()
 }
 
-func (c Posts) Create() revel.Result {
-	return c.Render()
+func (c Posts) Create(post models.Post) revel.Result {
+  post.Active = true
+  err := Db.Insert(&post)
+  if err != nil {
+    panic(err)
+  }
+
+  return c.Redirect(routes.Posts.Index())
 }

@@ -9,10 +9,20 @@
 
     <div class="span12">
       <form action="{{url "posts.create"}}">
-        <label for="title"/>Title</label>
-        <input type="text" name="title" /><br/>
-        <label for="title"/>Body</label>
-        <textarea name="body"></textarea><br/>
+        {{with $field := field "post.Title" .}}
+          <p class="{{$field.ErrorClass}}">
+            <label for="{{$field.Name}}"/>{{$field.Name}}</label>
+            <input type="text" name="{{$field.Name}}" value="{{$field.Flash}}"/>
+            <span class="error">{{$field.Error}}</span>
+          </p>
+        {{end}}
+        {{with $field := field "post.Body" .}}
+          <p class="{{$field.ErrorClass}}">
+            <label for="{{$field.Name}}"/>{{$field.Name}}</label>
+            <textarea name="{{$field.Name}}">{{$field.Flash}}</textarea>
+            <span class="error">{{$field.Error}}</span>
+          </p>
+        {{end}}
         <input type="submit" value="Post" />
         <a href="{{url "posts.index"}}">Cancel</a>
       </form>

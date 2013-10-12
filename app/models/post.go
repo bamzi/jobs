@@ -3,7 +3,7 @@ package models
 import "github.com/robfig/revel"
 
 type Post struct {
-  Id int
+  Id int64
   Title string
   Body string
   Active bool

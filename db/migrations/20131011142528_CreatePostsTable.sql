@@ -1,6 +1,6 @@
 -- +goose Up
 CREATE TABLE posts (
-  id int NOT NULL,
+  id serial,
   title text,
   body text,
   active boolean,
