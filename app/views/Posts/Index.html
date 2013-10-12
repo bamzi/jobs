@@ -5,6 +5,22 @@
   <div class="row">
     <div class="span6">
       {{template "flash.html" .}}
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <td>Body</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range .posts}}
+            <tr>
+              <td>{{.Title}}</td>
+              <td>{{.Body}}</td>
+            </tr>
+          {{end}}
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
